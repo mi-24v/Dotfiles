@@ -8,6 +8,24 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+"plugin install
+call plug#begin('~/.vim/plugged')
+"help itself
+Plug 'junegunn/vim-plug'
+"material theme
+Plug 'skielbasa/vim-material-monokai'
+"highlight some space
+Plug 'bronson/vim-trailing-whitespace'
+"enhance status line
+Plug 'itchyny/lightline.vim'
+"fzf (only enabled in vim)
+Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+"outlining (requires fzf and ctags binary)
+Plug 'theoldmoon0602/fzf_outline.vim'
+call plug#end()
+
+"FIXME don't work
 "plugin check function
 let s:plug = {
       \ "plugs": get(g:, 'plugs', {})
@@ -22,33 +40,30 @@ endfunction
 "  " setting
 "endif
 
-"plugin install
-call plug#begin('~/.vim/plugged')
-"help itself
-Plug 'junegunn/vim-plug'
-"material theme
-Plug 'skielbasa/vim-material-monokai'
-"highlight some space
-Plug 'bronson/vim-trailing-whitespace'
-"fzf (only enabled in vim)
-Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-"outlining (requires fzf and ctags binary)
-Plug 'theoldmoon0602/fzf_outline.vim'
-call plug#end()
-
-if s:plug.is_installed("skielbasa/vim-material-monokai")
+if s:plug.is_installed("vim-material-monokai")
 	set background=dark
 	set termguicolors
 	colorscheme material-monokai
 endif
 
-	"settings
+"if that above function work correctly, delete this.
+set background=dark
+set termguicolors
+
+"settings
 
 "set title to terminal
 set title
 "set line number
 set number
+"show status line always
+set laststatus=2
+"show current mode
+set showmode
+"show commands
+set showcmd
+"show current cursor position
+set ruler
 
 "indents
 "tab size setting
