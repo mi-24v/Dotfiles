@@ -66,6 +66,8 @@ set showcmd
 set ruler
 
 "indents
+"disable soft tab(replacing tab to space)
+set noexpandtab
 "tab size setting
 set tabstop=4
 set shiftwidth=4
