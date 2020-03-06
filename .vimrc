@@ -40,15 +40,17 @@ endfunction
 "  " setting
 "endif
 
+"termguicolors breaks tmux 256color mode.
+
 if s:plug.is_installed("vim-material-monokai")
 	set background=dark
-	set termguicolors
+	"set termguicolors
 	colorscheme material-monokai
 endif
 
 "if that above function work correctly, delete this.
 set background=dark
-set termguicolors
+"set termguicolors
 
 "settings
 
