@@ -1,6 +1,9 @@
 "enable multibyte chars in vimscripts(e.g.vimrc)
 scriptencoding utf-8
 
+"powerline python multiple version fix
+let g:powerline_pycmd="py3"
+
 "if vim-plug is not installed, install it.
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -68,16 +71,17 @@ set showcmd
 set ruler
 
 "indents
-"disable soft tab(replacing tab to space)
-set noexpandtab
 "tab size setting
 set tabstop=4
 set shiftwidth=4
 "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set softtabstop=4
+set softtabstop=0
 "auto indent (e.g.new line)
 set smartindent
 set autoindent
+set copyindent
+"wheather replacing tab into space
+set noexpandtab
 
 "chars setting
 
